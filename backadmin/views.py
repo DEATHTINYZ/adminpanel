@@ -150,7 +150,7 @@ def std_parents_adds(request): #เพิ่มข้อมูล นักเ�
             parenttelback=parenttelback
         )
         std_parents.save()
-        messages.success(request, "เพิ่มข้อมูลสำเร็จ")
+        messages.success(request, 'เพิ่มข้อมูลสำเร็จ')
         return redirect('/std_parents/')
     return render(request, 'admins/std_parents_add.html')
 
@@ -184,6 +184,7 @@ def update_std_parents(request, id): #อัพเดทข้อมูลที
     std_parents.parenttel = request.POST['parenttel']
     std_parents.parenttelback = request.POST['parenttelback']
     std_parents.save()
+    messages.success(request, 'อัพเดทข้อมูลสำเร็จ')
     return redirect('/std_parents')
 
 @login_required(login_url='login')
@@ -226,6 +227,7 @@ def driver_adds(request): #เพิ่มข้อมูล คนขับ ผ
             schoolcode=schoolcode
         )
         driver.save()
+        messages.success(request, 'เพิ่มข้อมูลสำเร็จ')
         return redirect('/driver')
     return render(request, 'admins/driver_add.html')
 
@@ -255,6 +257,7 @@ def update_driver(request, id): #อัพเดทข้อมูลที่�
     driver.vancode = request.POST['vancode']
     driver.schoolcode = request.POST['schoolcode']
     driver.save()
+    messages.success(request, 'อัพเดทข้อมูลสำเร็จ')
     return redirect('/driver')
 
 @login_required(login_url='login')
@@ -293,6 +296,7 @@ def school_adds(request): #เพิ่มข้อมูล คนขับ ผ
             schoolfax=schoolfax
         )
         school.save()
+        messages.success(request, 'เพิ่มข้อมูลสำเร็จ')
         return redirect('/school')
     return render(request, 'admins/school_add.html')
 
@@ -319,6 +323,7 @@ def update_school(request, id): #อัพเดทข้อมูลที่�
     school.schooltel = request.POST['schooltel']
     school.schoolfax = request.POST['schoolfax']
     school.save()
+    messages.success(request, 'อัพเดทข้อมูลสำเร็จ')
     return redirect('/school')
 
 @login_required(login_url='login')
