@@ -1,0 +1,20 @@
+
+#DJANGO 
+-create project
+django-admin startproject adminpanel
+
+- run server localhost:8000
+python manage.py runserver
+
+-create database admin first time
+python manage.py migrate
+
+-create user for admin
+python manage.py createsuperuser
+
+-go to django admin webbrowser
+localhost:8000/admin
+
+-create App for django
+python manage.py startapp backadmin
+
