@@ -1,0 +1,100 @@
+{% extends "components/navbar.html" %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h4 class="m-0 font-weight-bold text-primary">แก้ไขข้อมูลนักเรียน/ผู้ปกครอง </h4>
+  </div>
+  <div class="card-body">
+
+
+
+          <form action="/update_std_parents/{{ std_parents.id }}" method="post">
+            <input type="hidden" name="id" id="id" required maxlength="20" value="{{ std_parents.id }}"/>
+              {% csrf_token %}
+                <h4 class="text-dark">นักเรียน</h4>
+                <div class="row">
+                <div class="col">
+                    <input type="text" name="stdfname" value="{{ std_parents.stdfname }}" class="form-control" placeholder="ชื่อจริง">
+                </div>
+                <div class="col">
+                    <input type="text" name="stdlname" value="{{ std_parents.stdlname }}" class="form-control" placeholder="นามสกุล">
+                </div>
+                </div>
+                <div class="row mt-4">
+                <div class="col">
+                    <input type="text" name="stdaddress" value="{{ std_parents.stdaddress }}" class="form-control" placeholder="ที่อยู่">
+                </div>
+                <div class="col">
+                    <input type="text" name="stdemail" value="{{ std_parents.stdemail }}" class="form-control" placeholder="อีเมลล์">
+                </div>
+                </div>                                 
+            <div class="form-row mt-3 ">
+                <div class="form-group col-md-6 mr-2 mt-2">
+                <input type="text" name="stdcounty" value="{{ std_parents.stdcounty }}" class="form-control" placeholder="จังหวัด">
+                </div>
+                <div class="form-group col-md-2 mr-3 mt-2">
+                    <input type="text" name="stdpostalcode" value="{{ std_parents.stdpostalcode }}" class="form-control" placeholder="รหัสไปรษณีย์">
+                </div>
+                <div class="form-group col mt-2">
+                <input type="text" name="stdmacaddress" value="{{ std_parents.stdmacaddress }}" class="form-control" placeholder="Mac Address">
+                </div>
+            </div>                                   
+            <h4 class="text-dark">ผู้ปกครอง</h4>                                   
+                <div class="row">
+                    <div class="col">
+                    <input type="text" name="fatherfname" value="{{ std_parents.fatherfname }}"  class="form-control" placeholder="ชื่อจริง(บิดา)">
+                    </div>
+                    <div class="col">
+                    <input type="text" name="fatherlname" value="{{ std_parents.fatherlname }}" class="form-control" placeholder="นามสกุล(บิดา)">
+                    </div>
+                </div>                                                                           
+                <div class="row mt-4">
+                    <div class="col">
+                    <input type="text" name="motherfname" value="{{ std_parents.motherfname }}"  class="form-control" placeholder="ชื่อจริง(มารดา)">
+                    </div>
+                    <div class="col"> 
+                    <input type="text" name="motherlname" value="{{ std_parents.motherlname }}" class="form-control" placeholder="นามสกุล(มารดา)">
+                    </div>
+                </div>                                                                                                       
+                <div class="row mt-4">
+                    <div class="col">
+                    <input type="text" name="parenttel" value="{{ std_parents.parenttel }}"  class="form-control" placeholder="เบอร์โทรศัพท์ผู้ปกครอง">
+                    </div>
+                    <div class="col">
+                    <input type="text" name="parenttelback" value="{{ std_parents.parenttelback }}"  class="form-control" placeholder="เบอร์โทรศัพท์ผู้ปกครอง สำรอง">
+                    </div>
+                </div>
+            </div>
+                <div class="modal-footer">
+                <a href="/std_parents" class="btn btn-danger">ย้อนกลับ</a>
+                <button type="submit" class="btn btn-primary">บันทึก</button>
+                </div>      
+            </div>          
+          </form>
+        </div>
+    </div>
+</div>
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2021</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+    </div>
+    <!-- /.container-fluid -->
+
+  </div>
+  <!-- End of Main Content -->
+</div>
+<!-- End of Content Wrapper -->
+{% endblock content %}

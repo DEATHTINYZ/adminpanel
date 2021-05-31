@@ -1,0 +1,71 @@
+{% extends "components/navbar.html" %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h4 class="m-0 font-weight-bold text-primary">ข้อมูลโรงเรียน </h4>
+  </div>
+  <div class="card-body">
+
+
+
+    <form action="/view_school/{{ school.id }}" method="post">
+        <fieldset disabled>
+        <input type="hidden" name="id" id="id" required maxlength="20" value="{{ school.id }}"/>
+        {% csrf_token %}
+        <h4 class="text-dark">โรงเรียน</h4>                      
+        <div class="form-row">
+        <div class="form-group col-md-5 mr-3 mt-2">
+            <input type="text" name="schoolname" value="{{ school.schoolname }}" class="form-control" placeholder="ชื่อโรงเรียน">
+        </div>
+        <div class="form-group col mt-2">
+            <input type="text" name="schoolcode" value="{{ school.schoolcode }}" class="form-control" placeholder="รหัสโรงเรียน ( รหัสกระทรวง 10 หลัก ( ถ้ามี โดยเฉพาะโรงเรียนรัฐ ) )">
+        </div>       
+        </div>
+        <div class="form-group mt-2">
+            <input type="text" name="schooladdress" value="{{ school.schooladdress }}" class="form-control" placeholder="ที่อยู่โรงเรียน">
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-4 mr-3 mt-2">
+            <input type="text" name="schoolmail" value="{{ school.schoolmail }}" class="form-control" placeholder="อีเมลล์โรงเรียน">
+        </div>
+        <div class="form-group col-4 mr-3 mt-2">
+            <input type="text" name="schooltel" value="{{ school.schooltel }}" class="form-control"  placeholder="เบอร์โทรโรงเรียน">
+        </div>       
+        <div class="form-group col mt-2">
+            <input type="text" name="schoolfax" value="{{ school.schoolfax }}" class="form-control" placeholder="FAX">
+        </div>       
+        </div>
+    </div>
+        <div class="modal-footer">
+          <a href="/school" class="btn btn-danger">ย้อนกลับ</a>
+        </div>
+      </div>
+      </fieldset>
+      </form>
+        </div>
+    </div>
+</div>
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2021</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+    </div>
+    <!-- /.container-fluid -->
+
+  </div>
+  <!-- End of Main Content -->
+</div>
+<!-- End of Content Wrapper -->
+{% endblock content %}

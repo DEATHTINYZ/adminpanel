@@ -1,0 +1,84 @@
+{% extends "components/usernavbar.html" %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h4 class="m-0 font-weight-bold text-primary">ข้อมูลคนขับรถตู้/ผู้ดูแลประจำรถตู้ </h4>
+  </div>
+  <div class="card-body">
+
+
+
+    <form action="/update_driver/{{ driver.id }}" method="post">
+        <fieldset disabled>
+        <input type="hidden" name="id" id="id" required maxlength="20" value="{{ driver.id }}"/>
+        {% csrf_token %}
+        <h4 class="text-dark">คนขับรถตู้</h4>
+        <div class="row">
+        <div class="col">
+            <input type="text" name="driverfname" value="{{ driver.driverfname }}"  class="form-control" placeholder="ชื่อจริง(คนขับรถตู้)">
+        </div>
+        <div class="col">
+            <input type="text" name="driverlname" value="{{ driver.driverlname }}"  class="form-control" placeholder="นามสกุล(คนขับรถตู้)">
+        </div>
+        </div>
+        <div class="form-group mt-4">
+            <input type="text" name="drivertel" value="{{ driver.drivertel }}"  class="form-control" placeholder="เบอร์โทรคนขับรถตู้">
+        </div>
+    <h4 class="text-dark">ผู้ดูแลประจำรถตู้</h4>
+        <div class="row">
+        <div class="col">
+            <input type="text" name="attendantfname" value="{{ driver.attendantfname }}"  class="form-control" placeholder="ชื่อจริง(ผู้ดูแลประจำรถตู้)">
+        </div>
+        <div class="col">
+            <input type="text" name="attendantlname" value="{{ driver.attendantlname }}"  class="form-control" placeholder="นามสกุล(ผู้ดูแลประจำรถตู้)">
+        </div>
+        </div>
+        <div class="form-group mt-4">
+            <input type="text" name="attendanttel" value="{{ driver.attendanttel }}"  class="form-control" placeholder="เบอร์โทรผู้ดูแลประจำรถตู้">
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-3 mr-2 mt-2">
+            <input type="text" name="brand" value="{{ driver.brand }}" class="form-control" placeholder="ข้อมูลรถตู้ (ยี่ห้อ รุ่น)">
+        </div>
+        <div class="form-group col mr-3 mt-2">
+            <input type="text" name="vancode" value="{{ driver.vancode }}"  class="form-control" placeholder="รหัสรถตู้">
+        </div>
+        <div class="form-group col mt-2">
+            <input type="text" name="schoolcode" value="{{ driver.schoolcode }}" class="form-control" placeholder="รหัสโรงเรียน">
+        </div>
+        </div>
+    </div>
+        <div class="modal-footer">
+          <a href="/user_driver" class="btn btn-danger">ย้อนกลับ</a>
+        </div>
+      
+      </div>
+    </fieldset>
+      </form>
+        </div>
+    </div>
+</div>
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2021</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+    </div>
+    <!-- /.container-fluid -->
+
+  </div>
+  <!-- End of Main Content -->
+</div>
+<!-- End of Content Wrapper -->
+{% endblock content %}
