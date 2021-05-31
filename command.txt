@@ -18,3 +18,10 @@ localhost:8000/admin
 -create App for django
 python manage.py startapp backadmin
 
+
+login user id:boat pass:0879098467dD 
+can view only
+
+login admin id:dream pass:0879098467d 
+can controll everything
+
